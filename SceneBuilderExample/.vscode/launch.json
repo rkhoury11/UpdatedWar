@@ -12,11 +12,11 @@
         },
         {
             "type": "java",
-            "name": "Launch Experiment",
+            "name": "Launch App",
             "request": "launch",
-            "mainClass": "DrawMap.Experiment",
-            "projectName": "WarGame_e53110fd",
-            "vmArgs": "--module-path C:/CSI_2310/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib --add-modules=javafx.controls,javafx.fxml,javafx.base,javafx.graphics,javafx.media,javafx.swing,javafx.web"
+            "mainClass": "App",
+            "projectName": "SceneBuilderExample_676c3aca",
+            "vmArgs": "--module-path C:/CSI_2310/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib --add-modules=javafx.controls,javafx.fxml,javafx.base,javafx.graphics,javafx.media,javafx.swing,javafx.web"            
         }
     ]
 }
