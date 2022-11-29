@@ -6,7 +6,7 @@ WAR is a digital board game where players strategize andd battle to conquer terr
 
 Each territory is initially assigned with a color, representing the player who owns that territory.
 
-When you are ready to play, launch the program, select the amount of players you wish to partake in the game (3 to 6) and press the 'Start Game' button to get started (as shown in the text box at the bottom of the window).
+When you are ready to play, simply launch the App class program, which should generate a new window. Select the amount of players you wish to partake in the game (3 to 6) and press the 'Start Game' button to get started (as shown in the text box at the bottom of the window).
 
 In the first round, all players should be able to add troops (half the amount of their owned territories) to their territories, in whatever territory - in their possession - that they may want.
 
