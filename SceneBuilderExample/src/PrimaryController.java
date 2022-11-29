@@ -223,6 +223,9 @@ public class PrimaryController {
             TerritoryMap.territoryList.get(distribution.get(0)).setColor(playerColors.get(curPlayer));
             TerritoryMap.territoryList.get(distribution.remove(0)).owned = curPlayer;
             playerTerritoryCount.put(curPlayer, playerTerritoryCount.get(curPlayer) + 1);
+
+///////////////////////////////////////////////////////////////////////////////////////
+
             curPlayer++;
         }
     }
@@ -340,6 +343,9 @@ public class PrimaryController {
         defenseValues.clear();
         ///////////////////
 
+        int curAttackingPlayer = TerritoryMap.selectedTerritory.owned;
+        int curDefendingPlayer = TerritoryMap.targetTerritory.owned;
+
         rollButton.setVisible(false);
         for (Node children : attackLabelPane.getChildren()) {
             children.setVisible(true);
@@ -392,7 +398,14 @@ public class PrimaryController {
                     TerritoryMap.targetTerritory.owned = turn;
                     TerritoryMap.targetTerritory.setColor(playerColors.get(turn));
                     TerritoryMap.targetTerritory.setTroop(2);
-                    playerTerritoryCount.put(turn, playerTerritoryCount.get(turn) + 1);
+
+                    //playerTerritoryCount.put(curPlayer, playerTerritoryCount.get(curPlayer) + 1);
+
+                    playerTerritoryCount.put(curAttackingPlayer, playerTerritoryCount.get(curAttackingPlayer) + 1);
+                    playerTerritoryCount.put(curDefendingPlayer, playerTerritoryCount.get(curDefendingPlayer) - 1);
+                    textBox.setText("You have conquered this territory! You can try to conquer more territories, or pass the turn to the next player.");
+
+
                     if (playerTerritoryCount.get(turn) >= 24){
                         gameWon = true;
                         textBox.setText("Player " + turn + " has won! Exit the window, or press 'reset game' to start a new game!");
@@ -400,6 +413,8 @@ public class PrimaryController {
                     }
                     TerritoryMap.selectedTerritory.setTroop(TerritoryMap.selectedTerritory.getTroopCount() - 1);
                     break;
+                } else {
+                    textBox.setText("You were not able to conquer this territory. Either press 'fight' to try again, or deselect your current territory to carry on with your turn");
                 }
             }
         } else {
@@ -414,7 +429,10 @@ public class PrimaryController {
                     TerritoryMap.targetTerritory.owned = turn;
                     TerritoryMap.targetTerritory.setColor(playerColors.get(turn));
                     TerritoryMap.targetTerritory.setTroop(2);
-                    playerTerritoryCount.put(turn, playerTerritoryCount.get(turn) + 1);
+                    playerTerritoryCount.put(curAttackingPlayer, playerTerritoryCount.get(curAttackingPlayer) + 1);
+                    playerTerritoryCount.put(curDefendingPlayer, playerTerritoryCount.get(curDefendingPlayer) - 1);
+                    textBox.setText("You have conquered this territory! You can try to conquer more territories, or pass the turn to the next player.");
+
                     if (playerTerritoryCount.get(turn) >= 24){
                         gameWon = true;
                         textBox.setText("Player " + turn + " has won! Exit the window, or press 'reset game' to start a new game!");
@@ -422,6 +440,8 @@ public class PrimaryController {
                     }
                     TerritoryMap.selectedTerritory.setTroop(TerritoryMap.selectedTerritory.getTroopCount() - 1);
                     break;
+                } else {
+                    textBox.setText("You were not able to conquer this territory. Either press 'fight' to try again, or deselect your current territory to carry on with your turn");
                 }
             }
         }
