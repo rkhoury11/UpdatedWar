@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import javafx.scene.layout.Pane;
-// import javafx.scene.paint.Color;
 
 public class TerritoryMap extends Pane {
-
     static Territory brazil;
     static Territory venezuela;
     static Territory peru;
@@ -57,6 +56,11 @@ public class TerritoryMap extends Pane {
     
     public static List<Territory> territoryList = new ArrayList<Territory>();
     public static List<Territory> NorthAmerica = new ArrayList<Territory>();
+    public static List<Territory> SouthAmerica = new ArrayList<Territory>();
+    public static List<Territory> Europe = new ArrayList<Territory>();
+    public static List<Territory> Africa = new ArrayList<Territory>();
+    public static List<Territory> Asia = new ArrayList<Territory>();
+    public static List<Territory> Oceania = new ArrayList<Territory>();
 
     
 
@@ -107,10 +111,28 @@ public class TerritoryMap extends Pane {
         vladivostok = new Territory("file:images/vladivostok.png", 1150, 106, 398, 248, "Vladivostok", 20, 0, -60, "0", 20, 0, -40);
 
         NorthAmerica.addAll(Arrays.asList(
-            alaska, mackenzie, greenland, vancouver
+            alaska, mackenzie, greenland, vancouver, ottawa, new_york, california, mexico, labrador
         ));
 
-        
+        SouthAmerica.addAll(Arrays.asList(
+            peru, brazil, venezuela, argentina
+        ));
+
+        Europe.addAll(Arrays.asList(
+           iceland, england, germany, france, poland, moscow, sweden 
+        ));
+
+        Africa.addAll(Arrays.asList(
+            algeria, congo, egypt, madagascar, sudan, south_africa
+        ));
+
+        Asia.addAll(Arrays.asList(
+           middle_east, india, vietnam, china, japan, chita, mongolia, vladivostok, siberia, dudinka, omsk, aral 
+        ));
+
+        Oceania.addAll(Arrays.asList(
+            australia, new_guinea, borneo, sumatra
+        ));
 
         getChildren().addAll(Arrays.asList(
             brazil,venezuela,peru,argentina,

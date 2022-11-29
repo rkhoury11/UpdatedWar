@@ -19,8 +19,8 @@ class Territory extends StackPane {
     public int owned; //store which player owns this territory
     public Set<Territory> borders; //store bordering territories
     public String sName;
-    //public boolean addedDudes = true;
-    //public int dudeCount;
+    public int defenseDiceCount;
+    public int attackDiceCount;
     
 
     public Territory(
@@ -33,11 +33,13 @@ class Territory extends StackPane {
         ImageView image = new ImageView(imageUrl);
         image.setFitWidth(w/(1.8));
         image.setFitHeight(h/(1.8));
-        image.setPickOnBounds(false); // Disable hittest on transparent pixels
+        image.setPickOnBounds(false);
         image.setCache(true);
         image.setCacheHint(CacheHint.SPEED);        
         image.setPreserveRatio(true);
 
+        defenseDiceCount = 1;
+        attackDiceCount = 0;
         sName = territoryName;
         //init name text and placement values
         Text name = new Text(territoryName);
@@ -167,7 +169,9 @@ class Territory extends StackPane {
                     else if (this == TerritoryMap.targetTerritory) {
                         TerritoryMap.targetTerritory = null;
                         for(Territory t : TerritoryMap.selectedTerritory.borders) {
-                            t.setBrightness(0);
+                            if (t.owned != TerritoryMap.currentTurn){
+                                t.setBrightness(0);
+                            }
                         }
                     }
                 
