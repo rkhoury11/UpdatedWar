@@ -11,12 +11,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class PrimaryController {
 
+    @FXML
+    private Pane IntroPane;
+    @FXML
+    private BorderPane GamePane;
     @FXML
     private GridPane attackLabelPane, defendLabelPane;
     @FXML
@@ -76,6 +82,7 @@ public class PrimaryController {
 
         // put map on board
         mainBox.getChildren().add(map);
+        GamePane.setVisible(false);
 
         resetGame();
     }
@@ -463,5 +470,16 @@ public class PrimaryController {
         // TerritoryMap.selectedTerritory.setTroop(TerritoryMap.selectedTerritory.getTroopCount()
         // - 1);
         // }
+    }
+
+    @FXML
+    private void goToWarButtonPress() throws IOException{
+        IntroPane.setVisible(false);
+        GamePane.setVisible(true);
+    }
+
+    @FXML void showIntroPaneButtonPress() throws IOException {
+        IntroPane.setVisible(true);
+        GamePane.setVisible(false);
     }
 }
